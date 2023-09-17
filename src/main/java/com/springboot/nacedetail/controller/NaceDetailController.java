@@ -1,28 +1,33 @@
 package com.springboot.nacedetail.controller;
 
 import com.springboot.nacedetail.entity.NaceDetail;
-import com.springboot.nacedetail.repository.NaceDetailsRepository;
+import com.springboot.nacedetail.service.NaceDetailService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.util.List;
 
 @RestController
-@RequestMapping("/nace")
 public class NaceDetailController {
-    @Autowired
-    private NaceDetailsRepository repository;
 
-    @PostMapping("/add")
-    public ResponseEntity<String> addNaceDetails(@RequestBody NaceDetail naceDetail) {
-        repository.save(naceDetail);
-        return ResponseEntity.ok("NACE details added successfully");
+    @Autowired
+    private NaceDetailService naceDetailService;
+
+    private final Logger LOGGER =
+            LoggerFactory.getLogger(NaceDetailController.class);
+
+
+    @PostMapping("/nace")
+    public NaceDetail addNaceDetails(@RequestBody NaceDetail naceDetail) {
+        LOGGER.info("Inside addNaceDetails of NaceDetailController");
+        return naceDetailService.save(naceDetail);
     }
 
-    @GetMapping("/get/{code}")
-    public ResponseEntity<NaceDetail> getNaceDetails(@PathVariable Long code) {
-        Optional<NaceDetail> naceDetail = repository.findByCode(code);
-        return naceDetail.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @GetMapping("/nace")
+    public List<NaceDetail> getNaceList() {
+        LOGGER.info("Inside getNaceList of NaceDetailsController");
+        return naceDetailService.getNaceList();
     }
 }
