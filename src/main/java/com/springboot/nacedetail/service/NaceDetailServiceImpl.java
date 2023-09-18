@@ -16,11 +16,11 @@ public class NaceDetailServiceImpl implements NaceDetailService{
 
     @Override
     public NaceDetail save(NaceDetail naceDetail) {
-       return repository.save(naceDetail);
+        return repository.save(naceDetail);
     }
 
     @Override
-    public List<NaceDetail> getNaceList() {
+    public List<NaceDetail> getNaceList(){
         return repository.findAll();
     }
 

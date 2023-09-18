@@ -35,7 +35,7 @@ public class NaceDetailControllerTest {
         MockitoAnnotations.openMocks(this);
         nace = NaceDetail.builder()
                 .id(1L)
-                .nOrder("testOrder")
+                .naceOrderNumber("testOrder")
                 .level(1)
                 .code("testCode")
                 .parent("testParent")

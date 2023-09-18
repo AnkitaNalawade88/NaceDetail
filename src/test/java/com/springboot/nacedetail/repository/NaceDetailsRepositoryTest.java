@@ -27,7 +27,7 @@ class NaceDetailsRepositoryTest {
     public void testSaveNaceDetail() {
         NaceDetail savedNaceDetail = repository.save(NaceDetailsTestData.getNaceData());
         assertNotNull(savedNaceDetail.getId());
-        assertEquals("Test Order", savedNaceDetail.getNOrder());
+        assertEquals("12345", savedNaceDetail.getNaceOrderNumber());
     }
 
     @Test
@@ -39,7 +39,7 @@ class NaceDetailsRepositoryTest {
         List<NaceDetail> naceDetails = repository.findAll();
 
         assertEquals(2, naceDetails.size());
-        assertEquals("Test Code 1", naceDetails.get(0).getCode());
-        assertEquals("Test Code 2", naceDetails.get(1).getCode());
+        assertEquals("12345", naceDetails.get(0).getNaceOrderNumber());
+        assertEquals("123456", naceDetails.get(1).getNaceOrderNumber());
     }
 }

@@ -30,7 +30,7 @@ public class NaceDetailsTestData {
 
     public static NaceDetail getNaceData() {
         NaceDetail naceDetail = new NaceDetail();
-        naceDetail.setNOrder("Test Order");
+        naceDetail.setNaceOrderNumber("12345");
         naceDetail.setLevel(1);
         naceDetail.setCode("Test Code");
         naceDetail.setParent("Test Parent");
@@ -40,7 +40,7 @@ public class NaceDetailsTestData {
 
     public static Object naceDetail1() {
         NaceDetail naceDetail1 = new NaceDetail();
-        naceDetail1.setNOrder("Test Order 1");
+        naceDetail1.setNaceOrderNumber("12345");
         naceDetail1.setLevel(1);
         naceDetail1.setCode("Test Code 1");
         naceDetail1.setParent("Test Parent 1");
@@ -51,7 +51,7 @@ public class NaceDetailsTestData {
 
     public static Object naceDetail2() {
         NaceDetail naceDetail2 = new NaceDetail();
-        naceDetail2.setNOrder("Test Order 2");
+        naceDetail2.setNaceOrderNumber("123456");
         naceDetail2.setLevel(2);
         naceDetail2.setCode("Test Code 2");
         naceDetail2.setParent("Test Parent 2");
